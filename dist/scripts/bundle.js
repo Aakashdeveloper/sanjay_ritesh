@@ -30158,48 +30158,85 @@ module.exports = warning;
 module.exports = require('./lib/React');
 
 },{"./lib/React":30}],158:[function(require,module,exports){
-"use strict"
 var React = require('react');
 
-
-var Home = React.createClass({displayName: "Home",
-	  render:function(){
-		 return (
-			React.createElement("div", {className: "jumbotron"}, 
-				React.createElement("h1", null, " This is about"), 
-				
-				React.createElement("p", null, " This is React Component")
-			)
-		 );
-	} 
+var About = React.createClass({displayName: "About",
+    render:function(){
+        return(
+           React.createElement("div", null, 
+                React.createElement("h1", null, "This is about page"), 
+            React.createElement("div", {class: "panel-group"}, 
+                React.createElement("div", {class: "panel panel-default"}, 
+                    React.createElement("div", {class: "panel-heading"}, 
+                    React.createElement("h4", {class: "panel-title"}, 
+                        React.createElement("a", {"data-toggle": "collapse", href: "#collapse1"}, "Collapsible panel")
+                    )
+                    ), 
+                    React.createElement("div", {id: "collapse1", class: "panel-collapse collapse"}, 
+                    React.createElement("div", {class: "panel-body"}, "Panel Body"), 
+                    React.createElement("div", {class: "panel-footer"}, "Panel Footer")
+                    )
+                )
+            )
+            )
+        );
+    }
 });
 
-module.exports = Home;
+
+module.exports= About; 
 
 },{"react":157}],159:[function(require,module,exports){
-"use strict"
 var React = require('react');
 
+var Contact = React.createClass({displayName: "Contact",
+    render:function(){
+        return(
+           React.createElement("div", null, 
+                React.createElement("h1", null, "This is Contact page"), 
+            React.createElement("div", {class: "panel-group"}, 
+                React.createElement("div", {class: "panel panel-default"}, 
+                    React.createElement("div", {class: "panel-heading"}, 
+                    React.createElement("h4", {class: "panel-title"}, 
+                        React.createElement("a", {"data-toggle": "collapse", href: "#collapse1"}, "Collapsible panel")
+                    )
+                    ), 
+                    React.createElement("div", {id: "collapse1", class: "panel-collapse collapse"}, 
+                    React.createElement("div", {class: "panel-body"}, "Panel Body"), 
+                    React.createElement("div", {class: "panel-footer"}, "Panel Footer")
+                    )
+                )
+            )
+            )
+        );
+    }
+});
+
+
+module.exports= Contact; 
+
+},{"react":157}],160:[function(require,module,exports){
+var React = require('react');
 
 var Home = React.createClass({displayName: "Home",
-	  render:function(){
-		 return (
-			React.createElement("div", {className: "jumbotron"}, 
-				React.createElement("h1", null, " I am doing react"), 
-				
-				React.createElement("p", null, " This is React Component")
-			)
-		 );
-	} 
+    render:function(){
+        return(
+            React.createElement("div", {className: "jumbotron"}, 
+                React.createElement("h1", null, "This is first react Comp")
+            )
+        )
+    }
 });
+
 
 module.exports = Home;
 
-},{"react":157}],160:[function(require,module,exports){
+},{"react":157}],161:[function(require,module,exports){
 $ = jquery = require('jquery');
 var React = require('react');
 var Home = require('./components/homePage');
 var About = require('./components/about/aboutPage');
+var Contact = require('./components/contactUs/contactPage');
 
 
 var App = React.createClass({displayName: "App",
@@ -30207,25 +30244,26 @@ var App = React.createClass({displayName: "App",
         var Child;
 
         switch(this.props.route){
-            case 'about': Child = About; break;
-            default: Child= Home;
-        }
+            case 'about':Child = About; break;
+            case 'contact': Child = Contact; break;
+            default: Child = Home;
 
+        }
         return(
             React.createElement("div", null, 
                 React.createElement(Child, null)
             )
-        );
+        )
     }
-});
-
+})
 
 function render(){
     var route = window.location.hash.substr(1);
-    
     React.render(React.createElement(App, {route: route}), document.getElementById('app'));
+
+
 }
 
 window.addEventListener('hashchange',render);
 render();
-},{"./components/about/aboutPage":158,"./components/homePage":159,"jquery":1,"react":157}]},{},[160]);
+},{"./components/about/aboutPage":158,"./components/contactUs/contactPage":159,"./components/homePage":160,"jquery":1,"react":157}]},{},[161]);

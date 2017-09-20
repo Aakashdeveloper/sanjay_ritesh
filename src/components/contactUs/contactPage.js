@@ -1,10 +1,10 @@
 var React = require('react');
 
-var About = React.createClass({
+var Contact = React.createClass({
     render:function(){
         return(
            <div>
-                <h1>This is about page</h1>
+                <h1>This is Contact page</h1>
             <div class="panel-group">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -24,4 +24,4 @@ var About = React.createClass({
 });
 
 
-module.exports= About; 
+module.exports= Contact; 
