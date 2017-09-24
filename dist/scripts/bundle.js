@@ -47363,6 +47363,14 @@ var Authors = React.createClass({displayName: "Authors",
     },
     
     render: function(){
+        var  createAuthorsRow = function(author){
+            return(
+                React.createElement("tr", {key: author.id}, 
+                    React.createElement("td", null, React.createElement("a", {href: "/#authors/"+author.id}, author.id)), 
+                    React.createElement("td", null, author.firstName, author.lastName)
+                )
+            )
+        }
         return(
             React.createElement("div", null, 
                 React.createElement("h1", null, "Authors"), 
